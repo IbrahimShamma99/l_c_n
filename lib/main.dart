@@ -47,8 +47,10 @@ Future<void> main() async {
   if (!kIsWeb) {
     channel = const AndroidNotificationChannel(
       'high_importance_channel', // id
-      'High Importance Notifications', // title
-      'This channel is used for important notifications.', // description
+      'High Importance Notifications',
+      description:
+          'This channel is used for important notifications.', // description
+      // title
       importance: Importance.high,
     );
 
@@ -146,7 +148,7 @@ class _Application extends State<Application> {
             android: AndroidNotificationDetails(
               channel.id,
               channel.name,
-              channel.description,
+              channelDescription: channel.description,
               // TODO add a proper drawable resource to android, for now using
               //      one that already exists in example app.
               icon: 'launch_background',
